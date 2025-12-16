@@ -214,3 +214,49 @@
         max-width: 1400px;
     }
 }
+
+/* TEAM PAGE RESPONSIVE - REDESIGN */
+@media (max-width: 1024px) {
+    .team-panel-container {
+        padding: 0 22px;
+    }
+
+    .team-panel {
+        gap: 40px;
+        /* Reduce gap on tablet */
+    }
+
+    .spotlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .team-page-header {
+        padding: 140px 0 60px;
+    }
+
+    .team-panel {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    /* Founder and Overview panels stack: Image on top naturally */
+    .team-panel-image {
+        max-width: 500px;
+        /* Limit width on mobile but keep centered if smaller */
+        margin: 0 auto;
+    }
+
+    .founder-name {
+        font-size: 36px;
+    }
+
+    .spotlights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .join-us {
+        padding: 60px 0;
+    }
+}
