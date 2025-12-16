@@ -1,0 +1,216 @@
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* TABLET: 768px - 1279px */
+@media (max-width: 1279px) {
+    :root {
+        --font-hero: 48px;
+        --font-section-title: 48px;
+        --spacing-3xl: 80px;
+    }
+
+    .section-container-wide {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Tech Grid - 2 columns */
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Team - Smaller photo */
+    .team-content {
+        grid-template-columns: 300px 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .team-photo {
+        top: 80px;
+    }
+
+    /* Press - Smaller cards */
+    .press-card {
+        min-width: calc((100% - 40px) / 3);
+    }
+
+    /* Press Images - 3 columns on tablet */
+    .press-images-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* MOBILE: < 768px */
+@media (max-width: 767px) {
+    :root {
+        --font-hero: 32px;
+        --font-section-title: 36px;
+        --font-subtitle: 18px;
+        --spacing-3xl: 60px;
+        --spacing-2xl: 40px;
+        --spacing-xl: 32px;
+    }
+
+    /* Navigation - Logo only */
+    .nav-links {
+        display: none;
+    }
+
+    .nav {
+        justify-content: center;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 500px;
+        padding-bottom: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    /* Hero Video - Mobile optimizations */
+    .hero-video {
+        /* On mobile, ensure video doesn't scale poorly */
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    /* Allow hero title to wrap on mobile */
+    .hero-title {
+        white-space: normal !important;
+    }
+
+    /* Reduce nav logo size on mobile */
+    .nav-logo-img {
+        height: 96px;
+    }
+
+    /* Press Images - Stack vertically on mobile */
+    .press-images-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    /* Trusted By */
+    .trusted-by {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .logo-track {
+        gap: 40px;
+    }
+
+    /* Technology - Single column */
+    .technology {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .technology-container {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Team - Stack vertically */
+    .team {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .team-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .team-photo {
+        position: relative;
+        top: 0;
+    }
+
+    .accordion-title {
+        font-size: 22px;
+    }
+
+    /* Use Cases - Stack vertically */
+    .use-cases {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .use-cases-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    /* Video first, then text on mobile */
+    .use-cases-video {
+        order: -1;
+    }
+
+    .use-cases-text h2 {
+        font-size: 36px;
+    }
+
+    .use-case-item {
+        font-size: 18px;
+    }
+
+    /* Press - Single card carousel */
+    .press {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .press-card {
+        min-width: 100%;
+    }
+
+    .press-card.center {
+        transform: scale(1);
+    }
+
+    /* Awards */
+    .awards {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .awards-content {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xl);
+    }
+
+    /* Footer - Single column */
+    .footer {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+}
+
+/* LARGE DESKTOP: > 1440px */
+@media (min-width: 1440px) {
+    :root {
+        --font-hero: 64px;
+        --font-section-title: 64px;
+    }
+
+    .section-container {
+        max-width: 1100px;
+    }
+
+    .section-container-wide {
+        max-width: 1400px;
+    }
+}
