@@ -9,7 +9,336 @@
     <title>Technology - Illumix</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/sticky-scroll.css">
+    <link rel="icon" type="image/png" href="images/ILLUMIX_GLYPH_LOGO.png">
+    <style>
+        /* Technology Page Premium Styles */
+
+        /* =========================================
+           HEADER: Premium Dark with Blue Glow
+           ========================================= */
+        .tech-header-premium {
+            position: relative;
+            padding: 180px 0 100px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .tech-header-premium::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            width: 800px;
+            height: 500px;
+            background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.15) 0%, rgba(0, 113, 227, 0.05) 40%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .tech-header-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(0, 113, 227, 0.3) 50%, transparent 100%);
+        }
+
+        .tech-header-premium .page-title {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            margin: 0 0 20px 0;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .tech-header-subtitle {
+            position: relative;
+            z-index: 1;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           PANEL SECTIONS
+           ========================================= */
+        .tech-panel {
+            position: relative;
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .tech-panel-light {
+            background: var(--bg-primary);
+        }
+
+        .tech-panel-gray {
+            background: var(--bg-secondary);
+        }
+
+        /* Subtle blue glow accents */
+        .tech-panel::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .tech-panel:nth-child(odd)::before {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .tech-panel:nth-child(even)::before {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        .tech-panel-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .tech-panel-grid.reverse {
+            direction: rtl;
+        }
+
+        .tech-panel-grid.reverse > * {
+            direction: ltr;
+        }
+
+        /* Panel Content */
+        .tech-panel-content {
+            max-width: 540px;
+        }
+
+        .tech-panel-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            background: rgba(0, 113, 227, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tech-panel-title {
+            font-size: clamp(32px, 4vw, 42px);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .tech-panel-description {
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .tech-panel-description:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Panel Media */
+        .tech-panel-media {
+            position: relative;
+        }
+
+        .tech-media-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 50%, #d2d2d7 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tech-media-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 50%;
+            background: radial-gradient(ellipse at center top, rgba(0, 113, 227, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* =========================================
+           CTA SECTION
+           ========================================= */
+        .tech-cta-section {
+            position: relative;
+            padding: 100px 0;
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+
+        .tech-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .tech-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 60px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-cta-container .section-title {
+            margin-bottom: 16px;
+        }
+
+        .tech-cta-container .subtitle {
+            margin-bottom: 32px;
+        }
+
+        /* =========================================
+           Responsive
+           ========================================= */
+        @media (max-width: 1100px) {
+            .tech-panel-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .tech-panel-grid.reverse {
+                direction: ltr;
+            }
+
+            .tech-panel-content {
+                max-width: 100%;
+            }
+
+            .tech-panel-media {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tech-header-premium {
+                padding: 120px 20px 60px;
+            }
+
+            .tech-header-premium .page-title {
+                font-size: clamp(26px, 6vw, 36px);
+            }
+
+            .tech-header-subtitle {
+                font-size: 16px;
+            }
+
+            .tech-panel {
+                padding: 60px 0;
+            }
+
+            .tech-panel-container,
+            .tech-cta-container {
+                padding: 0 20px;
+            }
+
+            .tech-panel-grid {
+                gap: 32px;
+            }
+
+            .tech-panel-label {
+                font-size: 11px;
+                padding: 5px 12px;
+            }
+
+            .tech-panel-title {
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
+
+            .tech-panel-description {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .tech-media-placeholder {
+                border-radius: 16px;
+                aspect-ratio: 16/10;
+            }
+
+            .tech-cta-section {
+                padding: 60px 0;
+            }
+
+            .tech-cta-container .section-title {
+                font-size: 24px;
+            }
+
+            .tech-cta-container .subtitle {
+                font-size: 16px;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .tech-header-premium {
+                padding: 110px 16px 50px;
+            }
+
+            .tech-panel-container {
+                padding: 0 16px;
+            }
+
+            .tech-panel-title {
+                font-size: 22px;
+            }
+
+            .tech-panel-description {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -29,357 +358,150 @@
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
-        <section class="detail-hero">
+        <!-- HEADER -->
+        <section class="tech-header-premium">
             <div class="section-container">
-                <h1 class="hero-title">Our Technology Platform</h1>
-                <p class="subtitle">Enterprise-grade spatial AI built for the real world</p>
+                <h1 class="page-title">Our Technology Platform</h1>
+                <p class="tech-header-subtitle">Enterprise-grade spatial AI built for the real world, operating at the edge with centimeter-level precision.</p>
             </div>
         </section>
 
-        <!-- STICKY SCROLL PANELS -->
-        <div class="sticky-container">
-            <!-- PANEL 1: Edge Computing -->
-            <section class="sticky-panel" id="edge-computing">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Operating at the Edge</h2>
-                        <p class="panel-description">Illumix's spatial AI platform operates entirely at the edge,
-                            delivering sub-second localization with centimeter-level precision. Unlike cloud-dependent
-                            solutions, our technology processes everything locally on device, eliminating latency and
-                            ensuring real-time performance even in bandwidth-constrained environments.</p>
-                        <p class="panel-description">This edge-first architecture means your applications remain
-                            functional without internet connectivity, making them ideal for mission-critical deployments
-                            in defense, industrial robotics, and autonomous systems where reliability cannot be
-                            compromised.</p>
+        <!-- PANEL 1: Edge Computing -->
+        <section class="tech-panel tech-panel-gray">
+            <div class="tech-panel-container">
+                <div class="tech-panel-grid">
+                    <div class="tech-panel-content">
+                        <span class="tech-panel-label">Edge Computing</span>
+                        <h2 class="tech-panel-title">Operating at the Edge</h2>
+                        <p class="tech-panel-description">Illumix's spatial AI platform operates entirely at the edge, delivering sub-second localization with centimeter-level precision. Unlike cloud-dependent solutions, our technology processes everything locally on device, eliminating latency and ensuring real-time performance even in bandwidth-constrained environments.</p>
+                        <p class="tech-panel-description">This edge-first architecture means your applications remain functional without internet connectivity, making them ideal for mission-critical deployments in defense, industrial robotics, and autonomous systems where reliability cannot be compromised.</p>
+                    </div>
+                    <div class="tech-panel-media">
+                        <div class="tech-media-placeholder">Edge Computing</div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- PANEL 2: Hardware Agnostic -->
-            <section class="sticky-panel" id="hardware-agnostic">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Built for Any Platform</h2>
-                        <p class="panel-description">Our technology works seamlessly across mobile devices, AR/VR
-                            wearables, and robotics platforms without requiring specialized sensors. Whether you're
-                            running on smartphones, smart glasses, or autonomous vehicles, Illumix adapts to your
-                            hardware.</p>
-                        <p class="panel-description">No LiDAR required. No GPS dependency. No proprietary sensors. Just
-                            robust computer vision and AI that works with standard camera sensors, making it accessible
-                            and cost-effective to deploy at scale across diverse hardware ecosystems.</p>
+        <!-- PANEL 2: Hardware Agnostic -->
+        <section class="tech-panel tech-panel-light">
+            <div class="tech-panel-container">
+                <div class="tech-panel-grid reverse">
+                    <div class="tech-panel-content">
+                        <span class="tech-panel-label">Hardware Agnostic</span>
+                        <h2 class="tech-panel-title">Built for Any Platform</h2>
+                        <p class="tech-panel-description">Our technology works seamlessly across mobile devices, AR/VR wearables, and robotics platforms without requiring specialized sensors. Whether you're running on smartphones, smart glasses, or autonomous vehicles, Illumix adapts to your hardware.</p>
+                        <p class="tech-panel-description">No LiDAR required. No GPS dependency. No proprietary sensors. Just robust computer vision and AI that works with standard camera sensors, making it accessible and cost-effective to deploy at scale across diverse hardware ecosystems.</p>
+                    </div>
+                    <div class="tech-panel-media">
+                        <div class="tech-media-placeholder">Hardware Agnostic</div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- PANEL 3: Complete Platform -->
-            <section class="sticky-panel" id="complete-platform">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">A Complete Architecture</h2>
-                        <p class="panel-description">Illumix isn't just an SDK or a research prototype—it's a complete,
-                            operational platform ready for enterprise deployment. Our full-stack solution includes
-                            mapping tools, localization engines, cloud infrastructure, analytics dashboards, and
-                            developer APIs.</p>
-                        <p class="panel-description">From initial spatial mapping to real-time user analytics, we
-                            provide the entire infrastructure needed to build, deploy, and scale spatial AI
-                            applications. This means faster time to market and reduced development complexity for your
-                            team.</p>
+        <!-- PANEL 3: Complete Platform -->
+        <section class="tech-panel tech-panel-gray">
+            <div class="tech-panel-container">
+                <div class="tech-panel-grid">
+                    <div class="tech-panel-content">
+                        <span class="tech-panel-label">Full Stack</span>
+                        <h2 class="tech-panel-title">A Complete Architecture</h2>
+                        <p class="tech-panel-description">Illumix isn't just an SDK or a research prototype—it's a complete, operational platform ready for enterprise deployment. Our full-stack solution includes mapping tools, localization engines, cloud infrastructure, analytics dashboards, and developer APIs.</p>
+                        <p class="tech-panel-description">From initial spatial mapping to real-time user analytics, we provide the entire infrastructure needed to build, deploy, and scale spatial AI applications. This means faster time to market and reduced development complexity for your team.</p>
+                    </div>
+                    <div class="tech-panel-media">
+                        <div class="tech-media-placeholder">Complete Platform</div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- PANEL 4: Multimodal AI + Memory -->
-            <section class="sticky-panel" id="multimodal-ai">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Intelligent Personalization</h2>
-                        <p class="panel-description">Illumix's AI agents go beyond basic spatial understanding. Our
-                            multimodal AI combines vision, language, and contextual awareness with a long-term memory
-                            architecture that learns and adapts to user behavior over time.</p>
-                        <p class="panel-description">This persistent memory enables personalized experiences that
-                            remember preferences, understand context from previous interactions, and deliver
-                            increasingly intelligent assistance. Your AI agents become more valuable the longer they're
-                            used.</p>
+        <!-- PANEL 4: Multimodal AI -->
+        <section class="tech-panel tech-panel-light">
+            <div class="tech-panel-container">
+                <div class="tech-panel-grid reverse">
+                    <div class="tech-panel-content">
+                        <span class="tech-panel-label">AI + Memory</span>
+                        <h2 class="tech-panel-title">Intelligent Personalization</h2>
+                        <p class="tech-panel-description">Illumix's AI agents go beyond basic spatial understanding. Our multimodal AI combines vision, language, and contextual awareness with a long-term memory architecture that learns and adapts to user behavior over time.</p>
+                        <p class="tech-panel-description">This persistent memory enables personalized experiences that remember preferences, understand context from previous interactions, and deliver increasingly intelligent assistance. Your AI agents become more valuable the longer they're used.</p>
+                    </div>
+                    <div class="tech-panel-media">
+                        <div class="tech-media-placeholder">Multimodal AI</div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- PANEL 5: Real-World Adaptability -->
-            <section class="sticky-panel" id="real-world-adaptability">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Built for the Real World</h2>
-                        <p class="panel-description">Real-world environments are dynamic—lighting changes, objects move,
-                            and spaces evolve. Illumix's technology is built to handle this complexity without constant
-                            remapping or recalibration.</p>
-                        <p class="panel-description">Our adaptive algorithms maintain accuracy across varying lighting
-                            conditions, from bright sunlight to low-light indoor environments. Spaces can change
-                            naturally over time without breaking localization, making our platform truly
-                            production-ready for long-term deployments.</p>
+        <!-- PANEL 5: Real-World Adaptability -->
+        <section class="tech-panel tech-panel-gray">
+            <div class="tech-panel-container">
+                <div class="tech-panel-grid">
+                    <div class="tech-panel-content">
+                        <span class="tech-panel-label">Adaptability</span>
+                        <h2 class="tech-panel-title">Built for the Real World</h2>
+                        <p class="tech-panel-description">Real-world environments are dynamic—lighting changes, objects move, and spaces evolve. Illumix's technology is built to handle this complexity without constant remapping or recalibration.</p>
+                        <p class="tech-panel-description">Our adaptive algorithms maintain accuracy across varying lighting conditions, from bright sunlight to low-light indoor environments. Spaces can change naturally over time without breaking localization, making our platform truly production-ready for long-term deployments.</p>
+                    </div>
+                    <div class="tech-panel-media">
+                        <div class="tech-media-placeholder">Real-World Adaptability</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- STICKY MEDIA ELEMENTS (all overlap in grid-column 2) -->
-            <div class="panel-media" data-panel="edge-computing">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">EDGE COMPUTING</div>
-                </div>
             </div>
-            <div class="panel-media" data-panel="hardware-agnostic">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">HARDWARE AGNOSTIC</div>
-                </div>
-            </div>
-            <div class="panel-media" data-panel="complete-platform">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">COMPLETE PLATFORM</div>
-                </div>
-            </div>
-            <div class="panel-media" data-panel="multimodal-ai">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">MULTIMODAL AI</div>
-                </div>
-            </div>
-            <div class="panel-media" data-panel="real-world-adaptability">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">REAL-WORLD ADAPTABILITY</div>
-                </div>
-            </div>
-        </div>
+        </section>
 
         <!-- CTA SECTION -->
-        <section class="detail-cta">
-            <div class="section-container">
+        <section class="tech-cta-section">
+            <div class="tech-cta-container">
                 <h2 class="section-title">Ready to build with Illumix?</h2>
-                <p class="subtitle" style="margin-top: 1rem; margin-bottom: 2rem;">Join leading enterprises deploying
-                    spatial AI at scale.</p>
-                <a href="use-cases.html" class="btn btn-primary">Explore use cases</a>
+                <p class="subtitle">Join leading enterprises deploying spatial AI at scale.</p>
+                <a href="use-cases.html" class="btn btn-primary">Explore Use Cases</a>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <a href="index.html" class="footer-logo">
-                    <img src="images/ILLUMIX_PRIMARY_LOGO (1).png" alt="Illumix" style="height: 60px; width: auto;">
-                </a>
-                <p style="margin-top: 20px; color: var(--text-secondary); font-size: 14px;">Powering the core stack for
-                    spatial AI.</p>
-            </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="https://jobs.lever.co/illumix" target="_blank">Careers</a></li>
-                    <li><a href="press.html">Press</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="technology.html">Technology</a></li>
-                    <li><a href="use-cases.html">Use Cases</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <ul class="footer-links">
-                    <li><a href="https://www.linkedin.com/company/illumix/" target="_blank">LinkedIn</a></li>
-                    <li><a href="https://twitter.com/illumix" target="_blank">Twitter</a></li>
-                    <li><a href="#contact" class="btn btn-primary"
-                            style="margin-top: 10px; display: inline-block;">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2025 Illumix. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
-        </div>
-    </footer>
-    <main>
-        <!-- HERO SECTION -->
-        <section class="detail-hero">
-            <div class="section-container">
-                <h1 class="hero-title">Our Technology Platform</h1>
-                <p class="subtitle">Enterprise-grade spatial AI built for the real world</p>
-            </div>
-        </section>
-
-        <!-- STICKY SCROLL PANELS -->
-        <div class="sticky-container">
-            <!-- PANEL 1: Edge Computing -->
-            <section class="sticky-panel" id="edge-computing">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Operating at the Edge</h2>
-                        <p class="panel-description">Illumix's spatial AI platform operates entirely at the edge,
-                            delivering sub-second localization with centimeter-level precision. Unlike cloud-dependent
-                            solutions, our technology processes everything locally on device, eliminating latency and
-                            ensuring real-time performance even in bandwidth-constrained environments.</p>
-                        <p class="panel-description">This edge-first architecture means your applications remain
-                            functional without internet connectivity, making them ideal for mission-critical deployments
-                            in defense, industrial robotics, and autonomous systems where reliability cannot be
-                            compromised.</p>
-                    </div>
+    <footer class="footer-premium">
+        <div class="footer-glow"></div>
+        <div class="footer-container">
+            <div class="footer-middle">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo-link">
+                        <img src="images/ILLUMIX_PRIMARY_LOGO (1).png" alt="Illumix" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">Spatial AI for the real world.</p>
                 </div>
-            </section>
-
-            <!-- PANEL 2: Hardware Agnostic -->
-            <section class="sticky-panel" id="hardware-agnostic">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Built for Any Platform</h2>
-                        <p class="panel-description">Our technology works seamlessly across mobile devices, AR/VR
-                            wearables, and robotics platforms without requiring specialized sensors. Whether you're
-                            running on smartphones, smart glasses, or autonomous vehicles, Illumix adapts to your
-                            hardware.</p>
-                        <p class="panel-description">No LiDAR required. No GPS dependency. No proprietary sensors. Just
-                            robust computer vision and AI that works with standard camera sensors, making it accessible
-                            and cost-effective to deploy at scale across diverse hardware ecosystems.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PANEL 3: Complete Platform -->
-            <section class="sticky-panel" id="complete-platform">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">A Complete Architecture</h2>
-                        <p class="panel-description">Illumix isn't just an SDK or a research prototype—it's a complete,
-                            operational platform ready for enterprise deployment. Our full-stack solution includes
-                            mapping tools, localization engines, cloud infrastructure, analytics dashboards, and
-                            developer APIs.</p>
-                        <p class="panel-description">From initial spatial mapping to real-time user analytics, we
-                            provide the entire infrastructure needed to build, deploy, and scale spatial AI
-                            applications. This means faster time to market and reduced development complexity for your
-                            team.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PANEL 4: Multimodal AI + Memory -->
-            <section class="sticky-panel" id="multimodal-ai">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Intelligent Personalization</h2>
-                        <p class="panel-description">Illumix's AI agents go beyond basic spatial understanding. Our
-                            multimodal AI combines vision, language, and contextual awareness with a long-term memory
-                            architecture that learns and adapts to user behavior over time.</p>
-                        <p class="panel-description">This persistent memory enables personalized experiences that
-                            remember preferences, understand context from previous interactions, and deliver
-                            increasingly intelligent assistance. Your AI agents become more valuable the longer they're
-                            used.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PANEL 5: Real-World Adaptability -->
-            <section class="sticky-panel" id="real-world-adaptability">
-                <div class="panel-content">
-                    <div class="panel-text">
-                        <h2 class="panel-title">Built for the Real World</h2>
-                        <p class="panel-description">Real-world environments are dynamic—lighting changes, objects move,
-                            and spaces evolve. Illumix's technology is built to handle this complexity without constant
-                            remapping or recalibration.</p>
-                        <p class="panel-description">Our adaptive algorithms maintain accuracy across varying lighting
-                            conditions, from bright sunlight to low-light indoor environments. Spaces can change
-                            naturally over time without breaking localization, making our platform truly
-                            production-ready for long-term deployments.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- STICKY MEDIA ELEMENTS (all overlap in grid-column 2) -->
-            <div class="panel-media" data-panel="edge-computing">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">EDGE COMPUTING</div>
+                <div class="footer-cta-group">
+                    <a href="contact.html" class="footer-cta-btn">
+                        <span>Get in Touch</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/illumix/" target="_blank" class="footer-linkedin-link"
+                        aria-label="Follow us on LinkedIn">
+                        <svg class="linkedin-icon" width="20" height="20" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        <span>Connect on LinkedIn</span>
+                    </a>
                 </div>
             </div>
-            <div class="panel-media" data-panel="hardware-agnostic">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">HARDWARE AGNOSTIC</div>
+            <div class="footer-bottom-bar">
+                <p class="footer-copyright">© 2025 Illumix, Inc.</p>
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy</a>
+                    <span class="footer-dot">•</span>
+                    <a href="terms-of-service.html">Terms</a>
                 </div>
             </div>
-            <div class="panel-media" data-panel="complete-platform">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">COMPLETE PLATFORM</div>
-                </div>
-            </div>
-            <div class="panel-media" data-panel="multimodal-ai">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">MULTIMODAL AI</div>
-                </div>
-            </div>
-            <div class="panel-media" data-panel="real-world-adaptability">
-                <div class="media-placeholder">
-                    <div style="font-size: 32px; font-weight: 600;">REAL-WORLD ADAPTABILITY</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- CTA SECTION -->
-        <section class="detail-cta">
-            <div class="section-container">
-                <h2 class="section-title">Ready to build with Illumix?</h2>
-                <p class="subtitle" style="margin-top: 1rem; margin-bottom: 2rem;">Join leading enterprises deploying
-                    spatial AI at scale.</p>
-                <a href="index.html#use-cases" class="btn btn-primary">Explore use cases</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>ILLUMIX</h3>
-                <p>Powering the core stack for spatial AI. Built for the real world.</p>
-            </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html#team">About</a></li>
-                    <li><a href="index.html#team">Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="technology.html">Technology</a></li>
-                    <li><a href="use-cases.html">Use Cases</a></li>
-                    <li><a href="index.html#press">Press</a></li>
-                    <li><a href="#">Documentation</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <ul class="footer-links">
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Email Us</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            © 2025 Illumix. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/sticky-scroll.js"></script>
 </body>
 
 </html>

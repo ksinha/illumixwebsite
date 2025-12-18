@@ -99,7 +99,7 @@ h6 {
 }
 
 .hero-title {
-    font-size: var(--font-hero);
+    font-size: clamp(32px, 4vw, 48px);
     line-height: 1.07143;
     letter-spacing: -0.005em;
     font-weight: 600;
@@ -236,7 +236,7 @@ section {
     position: relative;
     display: flex;
     align-items: flex-end;
-    padding-bottom: 80px;
+    padding-bottom: 30px;
 }
 
 .hero-video-container {
@@ -281,20 +281,36 @@ section {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding-left: 22px;
-    max-width: 600px;
+    padding-left: 40px;
     color: white;
     animation: fadeUp 1.2s ease 0.4s both;
 }
 
 .hero-title {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.6),
+        0 8px 24px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
 }
 
 .hero-subtitle {
-    margin-bottom: 24px;
-    opacity: 0.9;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    font-size: clamp(18px, 2vw, 24px);
+    opacity: 0.95;
+    margin: 0;
+    text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 24px 28px;
+    }
 }
 
 @keyframes fadeUp {
@@ -312,7 +328,13 @@ section {
 /* TRUSTED BY SECTION */
 .trusted-by {
     background: var(--bg-primary);
-    padding: var(--spacing-xl) 22px;
+    padding: var(--spacing-xl) 0;
+    width: 100%;
+}
+
+.trusted-by .section-container {
+    max-width: 100%;
+    padding: 0;
 }
 
 .trusted-by-heading {
@@ -327,22 +349,26 @@ section {
 .logo-carousel {
     overflow: hidden;
     position: relative;
+    width: 100%;
 }
 
 .logo-track {
     display: flex;
-    gap: 80px;
-    /* Matched to illumix.com speed - slightly faster than before */
-    animation: scroll 15s linear infinite;
+    gap: 60px;
+    animation: scroll 70s linear infinite;
+    width: max-content;
+    will-change: transform;
 }
 
 .logo-item {
-    height: 50px;
+    height: 60px;
     min-width: 120px;
+    max-width: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.7;
+    flex-shrink: 0;
+    opacity: 1;
     transition: opacity var(--transition-fast);
 }
 
@@ -350,20 +376,88 @@ section {
 .logo-item img {
     width: auto;
     height: 100%;
-    max-height: 48px;
+    max-height: 60px;
     object-fit: contain;
-    /* Ensure logos are grayscale by default */
-    filter: grayscale(100%);
-    transition: filter var(--transition-fast);
+    /* Show logos in full color with no filters */
+    filter: none !important;
+    opacity: 1;
+    transition: opacity var(--transition-fast);
 }
 
 .logo-item:hover svg,
 .logo-item:hover img {
-    filter: grayscale(0%);
+    opacity: 0.85;
 }
 
 .logo-item:hover {
     opacity: 1;
+}
+
+/* Individual logo size adjustments */
+/* MGM is baseline (correct size) */
+/* WB - reduce horizontal space on the container */
+.logo-item:has(img[alt="Warner Bros"]) {
+    margin: 0 -25px;
+    max-width: 100px;
+}
+
+.logo-item img[alt="Warner Bros"] {
+    max-height: 55px;
+    transform: scale(0.95);
+}
+
+/* Verizon and XREAL - slightly larger */
+.logo-item img[alt="Verizon"] {
+    max-height: 56px;
+    transform: scale(1.15);
+}
+
+.logo-item img[alt="XREAL"] {
+    max-height: 56px;
+    transform: scale(1.5);
+}
+
+/* Sony, Viture, Viam - much larger */
+.logo-item img[alt="Sony"] {
+    max-height: 70px;
+    transform: scale(1.9);
+}
+
+.logo-item img[alt="Viture"] {
+    max-height: 80px;
+    transform: scale(2.3);
+}
+
+.logo-item img[alt="Viam"] {
+    max-height: 60px;
+    transform: scale(1.5);
+}
+
+/* Sela and Simulanis - smaller */
+.logo-item img[alt="Sela"] {
+    max-height: 38px;
+    transform: scale(0.75);
+}
+
+.logo-item img[alt="Simulanis"] {
+    max-height: 38px;
+    transform: scale(0.75);
+}
+
+/* Theme parks - smaller */
+.logo-item img[alt="Carowinds"] {
+    max-height: 48px;
+    transform: scale(0.85);
+}
+
+.logo-item img[alt="Disney"] {
+    max-height: 48px;
+    transform: scale(0.85);
+}
+
+.logo-item img[alt="Six Flags"] {
+    max-height: 48px;
+    transform: scale(0.85);
 }
 
 @keyframes scroll {
@@ -376,28 +470,52 @@ section {
     }
 }
 
-/* TECHNOLOGY SECTION */
+/* TECHNOLOGY SECTION - DARK FROSTED BOX */
 .technology {
     padding: var(--spacing-3xl) var(--spacing-lg);
+    background: var(--bg-primary);
 }
 
 .technology-container {
-    background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+    background: linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%);
     padding: var(--spacing-3xl) var(--spacing-lg);
     border-radius: var(--radius-xl);
     max-width: 1200px;
     margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.technology-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.12) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .technology-header {
     text-align: center;
     margin-bottom: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
+}
+
+.technology-header .section-title {
+    color: #ffffff;
 }
 
 .technology-subtitle {
     max-width: 800px;
     margin: var(--spacing-md) auto 0;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 19px;
+    line-height: 1.5;
 }
 
 .tech-grid {
@@ -405,14 +523,16 @@ section {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-xl);
     margin-top: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
 }
 
 .tech-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     border-radius: var(--radius-lg);
     padding: var(--spacing-md);
     transition: all var(--transition-fast);
@@ -422,6 +542,20 @@ section {
     flex-direction: column;
     gap: var(--spacing-sm);
     text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
 }
 
 .tech-card.visible {
@@ -431,8 +565,14 @@ section {
 
 .tech-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(0, 113, 227, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 113, 227, 0.2),
+                0 0 0 1px rgba(0, 113, 227, 0.3);
+    border-color: rgba(0, 113, 227, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.tech-card:hover::before {
+    opacity: 1;
 }
 
 .tech-card-header {
@@ -453,20 +593,27 @@ section {
     font-size: 24px;
     flex-shrink: 0;
     transition: all var(--transition-fast);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3),
+                0 0 0 1px rgba(0, 113, 227, 0.2);
+}
+
+.tech-card:hover .tech-icon {
+    box-shadow: 0 8px 24px rgba(0, 113, 227, 0.5),
+                0 0 0 1px rgba(0, 113, 227, 0.4);
+    transform: scale(1.05);
 }
 
 .tech-card h3 {
     font-size: 20px;
     font-weight: 600;
     margin: 0;
-    color: var(--text-primary);
+    color: #ffffff;
     letter-spacing: -0.01em;
     line-height: 1.2;
 }
 
 .tech-card p {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.65);
     line-height: 1.5;
     margin: 0;
     font-size: 14px;
@@ -475,8 +622,9 @@ section {
 .technology-cta {
     text-align: center;
     margin-top: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
 }
-
 /* TEAM SECTION */
 .team {
     background: var(--bg-secondary);
@@ -612,10 +760,10 @@ section {
     margin-bottom: var(--spacing-sm);
 }
 
-/* USE CASES SECTION */
+/* USE CASES SECTION - Apple Vision Pro Dark Style */
 .use-cases {
-    background: var(--bg-primary);
-    padding: var(--spacing-3xl) var(--spacing-lg);
+    background: #000000;
+    padding: 80px var(--spacing-lg);
 }
 
 .use-cases-content {
@@ -623,18 +771,21 @@ section {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-2xl);
+    gap: 60px;
     align-items: center;
 }
 
 .use-cases-text h2 {
-    font-size: 48px;
-    margin-bottom: var(--spacing-md);
+    font-size: 42px;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-align: left;
 }
 
 .use-cases-subtitle {
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-xl);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 24px;
+    text-align: left;
 }
 
 .use-cases-list {
@@ -642,16 +793,20 @@ section {
 }
 
 .use-case-item {
-    padding: var(--spacing-md) 0;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 18px;
     transition: all var(--transition-fast);
     cursor: pointer;
 }
 
+.use-case-item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 .use-case-item a {
     display: block;
-    color: inherit;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     transition: all var(--transition-fast);
 }
@@ -663,18 +818,19 @@ section {
 }
 
 .use-cases-cta {
-    margin-top: var(--spacing-xl);
+    margin-top: 28px;
 }
 
 .use-cases-video {
     aspect-ratio: 16/10;
-    background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 50%, #d2d2d7 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.4);
     font-size: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* PRESS SECTION */
@@ -826,8 +982,9 @@ section {
 
 /* Common Panel Styles */
 .team-panel-section {
-    padding: var(--spacing-3xl) 0;
+    padding: 80px 0;
     width: 100%;
+    background: var(--bg-secondary);
 }
 
 .team-panel-container {
@@ -849,13 +1006,21 @@ section {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    background: var(--bg-secondary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.team-panel-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
 }
 
 .team-panel-image img {
     width: 100%;
     height: auto;
     display: block;
+    background: var(--bg-secondary);
 }
 
 /* Content Column */
@@ -863,6 +1028,36 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px 0;
+}
+
+.team-panel-content .btn {
+    align-self: flex-start;
+}
+
+.team-panel-content .section-title {
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    font-weight: 600;
+    color: #1a1a1c;
+}
+
+.team-description {
+    margin-bottom: 40px;
+}
+
+.team-description p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: #2d2d2f;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+
+.team-description p:last-child {
+    margin-bottom: 0;
 }
 
 /* Specific Content Styles */
@@ -1124,95 +1319,424 @@ section {
     border-color: var(--accent-blue);
     color: var(--accent-blue);
 }
-
 /* =========================================
    HOMEPAGE: WHAT PEOPLE ARE SAYING
    ========================================= */
 .what-people-saying {
     padding: var(--spacing-3xl) var(--spacing-lg);
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
 }
 
-.quote-cards-grid {
+.what-people-saying .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Three Cards in a Row - Unequal Widths */
+.quote-cards-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
+    grid-template-columns: 1fr 1.3fr 1fr; /* Middle card wider */
+    gap: 24px;
     max-width: 1200px;
-    margin: 0 auto var(--spacing-2xl);
+    margin: 0 auto 40px;
 }
 
 .quote-card {
-    background: var(--bg-secondary);
-    padding: 40px;
-    border-radius: 24px;
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    min-height: 280px;
+}
+
+.quote-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .quote-text {
-    font-size: 20px;
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.6;
     color: var(--text-primary);
-    margin-bottom: 32px;
-    /* Space between quote and author */
+    margin-bottom: 20px;
     font-weight: 500;
     letter-spacing: -0.01em;
+    font-style: normal;
 }
 
 .quote-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.quote-author strong {
     font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
 }
 
-.quote-role {
+.quote-author span {
     font-size: 14px;
     color: var(--text-secondary);
-    margin-top: 4px;
     line-height: 1.4;
 }
 
-/* Press Logo Bar */
-.press-logo-bar {
-    max-width: 1200px;
-    margin: 0 auto 40px;
+/* Press Logos and Button - Horizontal Row */
+.press-row {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.press-logo-item {
-    opacity: 0.6;
-    transition: opacity 0.2s ease;
-    filter: grayscale(100%);
-    text-decoration: none;
-    display: block;
+.press-logo-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.press-logo-item:hover {
+.press-logo-card::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0) 0%, transparent 70%);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.press-logo-card:hover::before {
     opacity: 1;
-    filter: grayscale(0%);
+    background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.08) 0%, transparent 70%);
 }
 
-.press-logo-img {
-    height: 28px;
+.press-logo-card:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.press-logo-card img {
+    height: 24px;
     width: auto;
-    display: block;
+    object-fit: contain;
+    filter: none;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
-/* Text placeholder for logos if image missing */
-.press-logo-text {
-    font-size: 18px;
-    font-weight: 700;
-    color: #86868b;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+/* Individual logo sizing adjustments */
+.press-logo-card img[alt="MIT Technology Review"] {
+    height: 32px;
+}
+
+.press-logo-card img[alt="Forbes"] {
+    height: 42px;
+}
+
+.press-logo-card img[alt="Fortune"] {
+    height: 22px;
+}
+
+.press-logo-card:hover img {
+    opacity: 1;
+}
+
+/* Compact Press Button */
+.press-cta-button {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    white-space: nowrap;
+    padding: 12px 22px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .quote-cards-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .press-row {
+        gap: 20px;
+    }
+
+    .press-cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   COMPREHENSIVE MOBILE/TABLET IMPROVEMENTS
+   ========================================= */
+
+/* Tablet: 768px - 1100px */
+@media (max-width: 1100px) {
+    /* Technology grid - 2x2 on tablet */
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Team panel on homepage */
+    .team-panel {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .team-panel-image {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    /* Use cases */
+    .use-cases-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .use-cases-video {
+        order: -1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Quote cards */
+    .quote-cards-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Section titles - slightly smaller on tablet */
+    .section-title {
+        font-size: 36px;
+    }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 768px) {
+    /* Global mobile improvements */
+    body {
+        font-size: 16px;
+    }
+
+    /* Reduce section padding on mobile */
+    .technology,
+    .team-panel-section,
+    .use-cases,
+    .what-people-saying {
+        padding: 48px 16px;
+    }
+
+    /* Section titles mobile size */
+    .section-title {
+        font-size: 28px;
+        line-height: 1.15;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    /* Technology section mobile */
+    .technology-container {
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+    .technology-subtitle {
+        font-size: 16px;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .tech-card {
+        padding: 20px;
+    }
+
+    .tech-card h3 {
+        font-size: 18px;
+    }
+
+    .tech-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    /* Team panel mobile */
+    .team-panel-container {
+        padding: 0 16px;
+    }
+
+    .team-panel {
+        gap: 32px;
+    }
+
+    .team-panel-image {
+        max-width: 100%;
+    }
+
+    .team-panel-content .section-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .team-description p {
+        font-size: 16px;
+    }
+
+    /* Use cases mobile */
+    .use-cases-text h2 {
+        font-size: 28px;
+    }
+
+    .use-cases-subtitle {
+        font-size: 16px;
+    }
+
+    .use-case-item {
+        font-size: 16px;
+        padding: 12px 0;
+    }
+
+    .use-cases-video {
+        max-width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    /* Quote cards mobile */
+    .quote-card {
+        padding: 24px;
+        min-height: auto;
+    }
+
+    .quote-text {
+        font-size: 15px;
+    }
+
+    /* Press logos mobile */
+    .press-row {
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .press-logo-card {
+        padding: 6px;
+    }
+
+    .press-logo-card img {
+        height: 20px;
+    }
+
+    .press-logo-card img[alt="MIT Technology Review"] {
+        height: 26px;
+    }
+
+    .press-logo-card img[alt="Forbes"] {
+        height: 32px;
+    }
+
+    .press-logo-card img[alt="Fortune"] {
+        height: 18px;
+    }
+
+    /* Buttons - ensure touch-friendly size */
+    .btn {
+        padding: 14px 24px;
+        font-size: 16px;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Logo carousel mobile */
+    .logo-track {
+        gap: 40px;
+    }
+
+    .logo-item {
+        height: 48px;
+        min-width: 80px;
+        max-width: 120px;
+    }
+
+    .logo-item img {
+        max-height: 48px;
+    }
+
+    /* Footer mobile adjustments */
+    .footer-logo-img {
+        height: 80px;
+    }
+
+    .footer-tagline {
+        margin-top: -10px;
+        font-size: 14px;
+    }
+
+    .footer-cta-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Small mobile: < 480px */
+@media (max-width: 480px) {
+    /* Even smaller adjustments for small phones */
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .technology-container {
+        padding: 32px 16px;
+    }
+
+    .tech-card {
+        padding: 16px;
+    }
+
+    .quote-card {
+        padding: 20px;
+    }
+
+    .quote-text {
+        font-size: 14px;
+    }
+
+    .press-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .press-logo-card {
+        margin: 4px 0;
+    }
 }
 
 /* =========================================
@@ -1575,122 +2099,6 @@ section {
     align-items: center;
 }
 
-/* WHAT PEOPLE ARE SAYING SECTION */
-.what-people-saying {
-    background: var(--bg-secondary);
-    padding: var(--spacing-3xl) var(--spacing-lg);
-}
-
-.quote-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-2xl);
-}
-
-@media (max-width: 900px) {
-    .quote-cards-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.quote-card {
-    background: white;
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.quote-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.quote-text {
-    font-size: 17px;
-    line-height: 1.5;
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    position: relative;
-    font-style: normal;
-}
-
-.quote-author {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    border-top: 1px solid var(--border-color);
-    padding-top: var(--spacing-md);
-}
-
-.quote-author strong {
-    color: var(--text-primary);
-    display: block;
-    margin-bottom: 4px;
-    font-size: 16px;
-    font-style: normal;
-}
-
-/* Press Logo Bar - Redesigned */
-.press-section-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: var(--spacing-2xl);
-}
-
-.press-logo-bar {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 40px;
-    align-items: center;
-    flex: 1;
-}
-
-.press-logo-link {
-    display: flex;
-    align-items: center;
-    opacity: 0.5;
-    transition: all var(--transition-fast);
-    position: relative;
-}
-
-.press-logo-link:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-}
-
-.press-logo-link img {
-    height: 24px;
-    width: auto;
-    filter: grayscale(100%);
-    transition: filter 0.3s ease;
-}
-
-.press-logo-link:hover img {
-    filter: grayscale(0%);
-}
-
-.press-section-cta {
-    flex-shrink: 0;
-}
-
-@media (max-width: 900px) {
-    .press-section-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .press-logo-bar {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
 
 /* =========================================
    TEAM PAGE LOGOS
@@ -1733,7 +2141,7 @@ section {
 .footer-premium {
     position: relative;
     background: linear-gradient(180deg, #0a0a0a 0%, #141414 100%);
-    padding: 80px 0 40px;
+    padding: 40px 0 24px;
     overflow: hidden;
 }
 
@@ -1754,20 +2162,19 @@ section {
     padding: 0 40px;
 }
 
-/* Top Section */
-.footer-top {
+/* Middle Section */
+.footer-middle {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-bottom: 60px;
+    align-items: flex-start;
+    padding: 0 0 30px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 60px;
 }
 
 .footer-brand {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0;
 }
 
 .footer-logo-link {
@@ -1780,7 +2187,7 @@ section {
 }
 
 .footer-logo-img {
-    height: 108px;
+    height: 120px;
     width: auto;
     filter: brightness(0) invert(1);
 }
@@ -1790,9 +2197,18 @@ section {
     font-size: 15px;
     font-weight: 400;
     letter-spacing: -0.01em;
+    margin: -20px 0 0 0;
 }
 
 /* CTA Button - Glassmorphic */
+.footer-cta-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end;
+    gap: 20px;
+    padding-top: 36px;
+}
+
 .footer-cta-btn {
     display: inline-flex;
     align-items: center;
@@ -1825,10 +2241,35 @@ section {
     transform: translate(3px, -3px);
 }
 
-/* Navigation Grid */
+/* LinkedIn Link - Bright and visible with working hover */
+.footer-linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-linkedin-link:hover {
+    color: #0A66C2;
+}
+
+.footer-linkedin-link .linkedin-icon {
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+}
+
+.footer-linkedin-link:hover .linkedin-icon {
+    fill: #0A66C2;
+}
+
+/* Navigation Grid - 2 columns now */
 .footer-nav {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 60px;
     padding-bottom: 60px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -1901,7 +2342,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 32px;
+    padding-top: 20px;
 }
 
 .footer-copyright {
@@ -1943,12 +2384,15 @@ section {
         padding: 0 24px;
     }
 
-    .footer-top {
+    .footer-middle {
         flex-direction: column;
         align-items: flex-start;
         gap: 32px;
         padding-bottom: 40px;
-        margin-bottom: 40px;
+    }
+
+    .footer-cta-group {
+        align-items: flex-start;
     }
 
     .footer-nav {
