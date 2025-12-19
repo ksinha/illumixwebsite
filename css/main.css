@@ -212,16 +212,18 @@ h6 {
     pointer-events: none;
 }
 
+/* Hamburger to X animation - clean centered cross */
 .nav-hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: translateY(8px) rotate(45deg);
 }
 
 .nav-hamburger.active span:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
 
 .nav-hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Mobile Navigation Overlay */
@@ -877,21 +879,20 @@ section {
 }
 
 /* =========================================
-   LIGHT THEME VARIANT - Frosted Glass
+   LIGHT THEME VARIANT - Soft Grey
+   Matches the site's light grey panel aesthetic
    ========================================= */
 .technology-container.light-theme {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(40px);
-    -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #f5f5f7 0%, #fafafa 50%, #f5f5f7 100%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.08),
-        0 8px 24px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 20px 60px rgba(0, 0, 0, 0.06),
+        0 8px 24px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .technology-container.light-theme::before {
-    background: radial-gradient(ellipse at top center, rgba(0, 113, 227, 0.06) 0%, transparent 60%);
+    background: radial-gradient(ellipse at top center, rgba(0, 113, 227, 0.04) 0%, transparent 60%);
 }
 
 .technology-container.light-theme .section-title {
@@ -903,19 +904,19 @@ section {
 }
 
 .technology-container.light-theme .tech-card {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .technology-container.light-theme .tech-card:hover {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(0, 113, 227, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 113, 227, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 113, 227, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .technology-container.light-theme .tech-icon {
-    background: rgba(0, 113, 227, 0.08);
+    background: rgba(0, 113, 227, 0.06);
     color: #1d1d1f;
 }
 
