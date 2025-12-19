@@ -7,7 +7,63 @@ document.addEventListener('DOMContentLoaded', function () {
     initScrollAnimations();
     initPressCarousel();
     updatePressCarouselButtons();
+    initMobileNav();
+    initLogoCarousel();
 });
+
+// ============================================
+// MOBILE NAVIGATION
+// ============================================
+
+function initMobileNav() {
+    const hamburger = document.querySelector('.nav-hamburger');
+    const overlay = document.querySelector('.nav-mobile-overlay');
+    const mobileLinks = document.querySelectorAll('.nav-mobile-menu a');
+
+    if (!hamburger || !overlay) return;
+
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking a link
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) {
+            hamburger.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// ============================================
+// LOGO CAROUSEL - Ensure animation works
+// ============================================
+
+function initLogoCarousel() {
+    const logoTrack = document.querySelector('.logo-track');
+    if (!logoTrack) return;
+
+    // Force animation restart on mobile
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        // Ensure the track has the right width for seamless looping
+        logoTrack.style.animation = 'none';
+        logoTrack.offsetHeight; // Trigger reflow
+        logoTrack.style.animation = 'scroll 40s linear infinite'; // Faster on mobile
+    }
+}
 
 // ============================================
 // SCROLL ANIMATIONS

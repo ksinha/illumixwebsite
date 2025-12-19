@@ -51,14 +51,7 @@
         --spacing-xl: 32px;
     }
 
-    /* Navigation - Logo only */
-    .nav-links {
-        display: none;
-    }
-
-    .nav {
-        justify-content: center;
-    }
+    /* Navigation handled in main.css with hamburger menu */
 
     /* Hero */
     .hero {
