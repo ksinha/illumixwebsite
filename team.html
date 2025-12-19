@@ -324,6 +324,56 @@
         }
 
         /* =========================================
+           FOUNDER CARD - Light Theme Variant
+           ========================================= */
+        .founder-card {
+            transition: all 0.5s ease;
+        }
+
+        .founder-card.light-theme {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 8px 24px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .founder-card.light-theme::before {
+            background: radial-gradient(ellipse at top right, rgba(0, 113, 227, 0.06) 0%, transparent 70%);
+        }
+
+        .founder-card.light-theme .founder-label {
+            color: var(--accent-blue);
+        }
+
+        .founder-card.light-theme .founder-name {
+            color: #1d1d1f;
+        }
+
+        .founder-card.light-theme .founder-bio p {
+            color: #6e6e73;
+        }
+
+        .founder-card.light-theme .founder-credentials {
+            border-top-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .founder-card.light-theme .credentials-label {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        .founder-card.light-theme .education-text {
+            color: #6e6e73;
+        }
+
+        .founder-card.light-theme .education-text span {
+            color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* =========================================
            SECTION 4: Meet the Team - New Layout
            Photo + Name/Title on top, Bio full width below
            ========================================= */
@@ -814,6 +864,13 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- Theme Toggle (Temporary) -->
+                <div class="theme-toggle-container">
+                    <span class="theme-toggle-label">Dark</span>
+                    <button class="theme-toggle" id="founderThemeToggle" aria-label="Toggle theme"></button>
+                    <span class="theme-toggle-label">Light</span>
                 </div>
             </div>
         </section>

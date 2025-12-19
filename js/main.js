@@ -9,7 +9,36 @@ document.addEventListener('DOMContentLoaded', function () {
     updatePressCarouselButtons();
     initMobileNav();
     initLogoCarousel();
+    initThemeToggles();
 });
+
+// ============================================
+// THEME TOGGLES (Temporary Feature)
+// ============================================
+
+function initThemeToggles() {
+    // Technology section toggle
+    const techToggle = document.getElementById('techThemeToggle');
+    const techContainer = document.querySelector('.technology-container');
+
+    if (techToggle && techContainer) {
+        techToggle.addEventListener('click', function () {
+            techToggle.classList.toggle('active');
+            techContainer.classList.toggle('light-theme');
+        });
+    }
+
+    // Founder section toggle (on team page)
+    const founderToggle = document.getElementById('founderThemeToggle');
+    const founderCard = document.querySelector('.founder-card');
+
+    if (founderToggle && founderCard) {
+        founderToggle.addEventListener('click', function () {
+            founderToggle.classList.toggle('active');
+            founderCard.classList.toggle('light-theme');
+        });
+    }
+}
 
 // ============================================
 // MOBILE NAVIGATION

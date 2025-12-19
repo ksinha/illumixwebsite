@@ -186,20 +186,25 @@ h6 {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
-    width: 24px;
-    height: 24px;
+    align-items: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
     z-index: 1001;
+    background: transparent;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-hamburger span {
     display: block;
-    width: 100%;
+    width: 22px;
     height: 2px;
-    background: var(--text-primary);
+    background: #1d1d1f;
     border-radius: 2px;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
 .nav-hamburger.active span:nth-child(1) {
@@ -280,20 +285,29 @@ h6 {
     }
 
     .nav-hamburger {
-        display: flex;
+        display: flex !important;
         position: relative;
         z-index: 1002;
-        padding: 10px;
-        margin: -10px;
         touch-action: manipulation;
     }
 
     .nav-links {
-        display: none;
+        display: none !important;
     }
 
     .nav-mobile-overlay {
         display: block;
+    }
+}
+
+/* Ensure hamburger shows on tablet too */
+@media (max-width: 1024px) {
+    .nav-hamburger {
+        display: flex !important;
+    }
+
+    .nav-links {
+        display: none !important;
     }
 }
 
@@ -647,6 +661,63 @@ section {
     }
 }
 
+/* =========================================
+   THEME TOGGLE COMPONENT
+   ========================================= */
+.theme-toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.theme-toggle-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    user-select: none;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    background: #e5e5ea;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle.active {
+    background: var(--accent-blue);
+}
+
+.theme-toggle.active::after {
+    transform: translateX(20px);
+}
+
 /* TECHNOLOGY SECTION - DARK FROSTED BOX */
 .technology {
     padding: var(--spacing-3xl) var(--spacing-lg);
@@ -656,6 +727,7 @@ section {
 .technology-container {
     background: linear-gradient(135deg, #0a0a0a 0%, #141414 50%, #0a0a0a 100%);
     padding: var(--spacing-3xl) var(--spacing-lg);
+    transition: all 0.5s ease;
     border-radius: var(--radius-xl);
     max-width: 1200px;
     margin: 0 auto;
@@ -794,6 +866,57 @@ section {
     line-height: 1.5;
     margin: 0;
     font-size: 14px;
+}
+
+/* =========================================
+   LIGHT THEME VARIANT - Frosted Glass
+   ========================================= */
+.technology-container.light-theme {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.technology-container.light-theme::before {
+    background: radial-gradient(ellipse at top center, rgba(0, 113, 227, 0.06) 0%, transparent 60%);
+}
+
+.technology-container.light-theme .section-title {
+    color: #1d1d1f;
+}
+
+.technology-container.light-theme .technology-subtitle {
+    color: #6e6e73;
+}
+
+.technology-container.light-theme .tech-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.technology-container.light-theme .tech-card:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 113, 227, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 113, 227, 0.08);
+}
+
+.technology-container.light-theme .tech-icon {
+    background: rgba(0, 113, 227, 0.08);
+    color: #1d1d1f;
+}
+
+.technology-container.light-theme .tech-card h3 {
+    color: #1d1d1f;
+}
+
+.technology-container.light-theme .tech-card p {
+    color: #6e6e73;
 }
 
 .technology-cta {
