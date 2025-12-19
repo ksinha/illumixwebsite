@@ -51,40 +51,7 @@
         --spacing-xl: 32px;
     }
 
-    /* Navigation handled in main.css with hamburger menu */
-
-    /* Hero */
-    .hero {
-        min-height: 500px;
-        padding-bottom: 40px;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        padding-left: var(--spacing-md);
-        padding-right: var(--spacing-md);
-    }
-
-    .hero-title {
-        font-size: 32px;
-    }
-
-    /* Hero Video - Mobile optimizations */
-    .hero-video {
-        /* On mobile, ensure video doesn't scale poorly */
-        min-width: 100%;
-        min-height: 100%;
-    }
-
-    /* Allow hero title to wrap on mobile */
-    .hero-title {
-        white-space: normal !important;
-    }
-
-    /* Reduce nav logo size on mobile */
-    .nav-logo-img {
-        height: 96px;
-    }
+    /* Navigation and Hero handled in main.css */
 
     /* Press Images - Stack vertically on mobile */
     .press-images-content {
