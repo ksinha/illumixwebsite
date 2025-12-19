@@ -288,6 +288,12 @@ h6 {
     .nav-mobile-overlay {
         display: block;
     }
+
+    /* Full width carousel on tablet */
+    .logo-carousel {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+    }
 }
 
 /* Show hamburger on mobile */
@@ -1976,6 +1982,21 @@ section {
     }
 
     /* Logo carousel mobile */
+    /* Full width carousel on mobile */
+    .trusted-by {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .trusted-by .section-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .logo-carousel {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+    }
+
     .logo-track {
         gap: 40px;
     }
