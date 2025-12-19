@@ -8,6 +8,8 @@
         content="Illumix - A Core Stack for Spatial AI. Built for the Real World. Enterprise-grade spatial AI that works everywhere, instantly.">
     <title>Illumix - A Core Stack for Spatial AI</title>
     <link rel="icon" type="image/png" href="images/ILLUMIX_GLYPH_LOGO.png">
+    <!-- Preload hero video for faster loading -->
+    <link rel="preload" as="video" href="videos/Illumix Hero Compressed.mp4" type="video/mp4" fetchpriority="high">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -48,8 +50,7 @@
         <!-- SECTION 1: HERO -->
         <section class="hero">
             <div class="hero-video-container" id="heroVideo">
-                <video class="hero-video" autoplay muted loop playsinline preload="metadata"
-                    poster="images/hero-poster.jpg">
+                <video class="hero-video" autoplay muted loop playsinline preload="auto" fetchpriority="high">
                     <source src="videos/Illumix Hero Compressed.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
