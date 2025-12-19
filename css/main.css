@@ -141,7 +141,7 @@ h6 {
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    z-index: 1000;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -230,15 +230,17 @@ h6 {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    z-index: 999;
+    z-index: 9998;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .nav-mobile-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .nav-mobile-menu {
@@ -266,29 +268,10 @@ h6 {
     color: var(--accent-blue);
 }
 
-/* Show hamburger on mobile */
-@media (max-width: 768px) {
-    .nav {
-        justify-content: space-between;
-        padding: 0 16px;
-    }
-
-    .nav-logo {
-        flex-shrink: 0;
-        max-width: 100px;
-        overflow: hidden;
-    }
-
-    .nav-logo-img {
-        height: 80px;
-        width: auto;
-    }
-
+/* Ensure hamburger shows on tablet too */
+@media (max-width: 1024px) {
     .nav-hamburger {
         display: flex !important;
-        position: relative;
-        z-index: 1002;
-        touch-action: manipulation;
     }
 
     .nav-links {
@@ -300,14 +283,31 @@ h6 {
     }
 }
 
-/* Ensure hamburger shows on tablet too */
-@media (max-width: 1024px) {
-    .nav-hamburger {
-        display: flex !important;
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+    .nav {
+        justify-content: space-between;
+        padding: 0 16px;
+        height: 56px;
     }
 
-    .nav-links {
-        display: none !important;
+    .nav-logo {
+        flex-shrink: 0;
+        max-width: 100px;
+        overflow: visible;
+    }
+
+    .nav-logo-img {
+        height: 70px;
+        width: auto;
+    }
+
+    .nav-hamburger {
+        display: flex !important;
+        position: relative;
+        z-index: 10000;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
     }
 }
 
@@ -676,6 +676,8 @@ section {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .theme-toggle-label {
