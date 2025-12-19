@@ -606,15 +606,15 @@
             <li><a href="team.html" class="nav-link">Team</a></li>
             <li><a href="press.html" class="nav-link active">Press</a></li>
         </ul>
-        <div class="nav-hamburger">
+        <button class="nav-hamburger" onclick="document.querySelector('.nav-hamburger').classList.toggle('active'); document.querySelector('.nav-mobile-overlay').classList.toggle('active');">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </button>
     </nav>
 
     <!-- Mobile Navigation Overlay -->
-    <div class="nav-mobile-overlay">
+    <div class="nav-mobile-overlay" onclick="this.classList.remove('active'); document.querySelector('.nav-hamburger').classList.remove('active');">
         <ul class="nav-mobile-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="technology.html">Technology</a></li>
